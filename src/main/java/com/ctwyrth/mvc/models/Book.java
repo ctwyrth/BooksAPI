@@ -25,19 +25,19 @@ public class Book {
 	private long id;
 	
 	@NotNull
-	@Size(min = 2, max = 200)
+	@Size(min = 2, max = 200, message="Title must be at least 2 characters.")
 	private String title;
 	
 	@NotNull
-	@Size(min = 5, max = 200)
+	@Size(min = 5, max = 200, message="Description must be at least 5 characters.")
 	private String description;
 	
 	@NotNull
-	@Size(min = 3, max = 40)
+	@Size(min = 3, max = 40, message="Language must be at least 3 characters.")
 	private String language;
 	
 	@NotNull
-	@Min(100)
+	@Min(value=100, message="Must be at least 100 pages.")
 	private Integer numberOfPages;
 	
 	@Column(updatable = false)
@@ -48,7 +48,7 @@ public class Book {
 	
 	//--------------------CONTRUCTORS-------------------
 	public Book() {}
-	public Book(String title, String description, String lang, int pages) {
+	public Book(String title, String description, String lang, Integer pages) {
 		this.title = title;
 		this.description = description;
 		this.language = lang;

@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>BooksAPI = Home</title>
 
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
@@ -45,6 +45,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<button class="btn btn-sm btn-secondary col-2 mt-3" onclick="addBook()">New Book</button>
 		</div>
 	</div>
 </body>

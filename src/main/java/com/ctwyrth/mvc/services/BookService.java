@@ -10,8 +10,8 @@ import com.ctwyrth.mvc.repositories.BookRepository;
 
 @Service
 public class BookService {
+	// --------------------VARIABLES--------------------
 	private final BookRepository bookRepository;
-
 	public BookService(BookRepository bookRepo) {
 	    this.bookRepository = bookRepo;
 	}

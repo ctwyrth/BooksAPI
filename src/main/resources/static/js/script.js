@@ -13,3 +13,7 @@ function viewBook(id) {
 function goHome() {
 	window.location.assign("/books");
 }
+
+function addBook() {
+	window.location.assign("/books/add");
+}

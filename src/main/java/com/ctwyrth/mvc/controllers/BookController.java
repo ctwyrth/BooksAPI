@@ -2,13 +2,16 @@ package com.ctwyrth.mvc.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.validation.BindingResult;
+//import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ctwyrth.mvc.models.Book;
 import com.ctwyrth.mvc.services.BookService;
@@ -22,15 +25,18 @@ public class BookController {
     }
     
     // create a book
+    @GetMapping("/books/add")
+    public String addBook(@ModelAttribute("book") Book book) {
+    	return "/books/new.jsp";
+    }
     @PostMapping("/books/add")
-    public String create(
-    		@RequestParam(value="title") String title,
-			@RequestParam(value="description") String desc,
-			@RequestParam(value="language") String lang,
-			@RequestParam(value="pages") Integer numOfPages) {
-    	Book book = new Book(title, desc, lang, numOfPages);
-    	bookService.createBook(book);
-    	return "redirect:/books";
+    public String create(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+    	if (result.hasErrors()) {
+    		return "/books/new.jsp";
+    	} else {
+    		bookService.createBook(book);
+    		return "redirect:/books";
+    	}
     }
 	
     // display all the books in db
