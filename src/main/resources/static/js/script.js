@@ -1,7 +1,15 @@
 function editBook(id) {
-	window.location.assign("/book/update/" + id);
+	window.location.assign("/books/update/" + id);
 }
 
 function deleteBook(id) {
-	window.location.assign("/book/delete/" + id);
+	window.location.assign("/books/delete/" + id);
+}
+
+function viewBook(id) {
+	window.location.assign("/books/" + id);
+}
+
+function goHome() {
+	window.location.assign("/books");
 }

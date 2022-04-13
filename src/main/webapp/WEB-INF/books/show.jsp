@@ -25,7 +25,8 @@
 		</div>
 		<div class="col-6 mx-auto mt-3">
 			<button class="btn btn-sm btn-success me-2" onclick="editBook(${book.id})">Edit</button>
-			<button class="btn btn-sm btn-danger" onclick="deleteBook(${book.id})">Delete</button>
+			<button class="btn btn-sm btn-danger me-2" onclick="deleteBook(${book.id})">Delete</button>
+			<button class="btn btn-sm btn-secondary" onclick="goHome()">Home</button>
 		</div>
 	</div>
 
